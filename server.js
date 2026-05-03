@@ -10,6 +10,14 @@ app.get('/', (req, res) => {
   `);
 });
 
+app.get("/about", (req, res) => {
+  res.json({
+    name: "Lab 10 — PaaS Deployment",
+    student: process.env.STUDENT_NAME || "Unknown",
+    platform: "Railway / Render",
+  });
+});
+
 app.get('/health', (req, res) => res.json({ status: 'ok' }));
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
